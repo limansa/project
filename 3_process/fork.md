@@ -1,5 +1,5 @@
-#fork.c
-###./fork
+# fork.c
+### ./fork
 ```
 Start: PPID=2131 PID=2195
 fork_ret=2196 The 1 times
@@ -15,15 +15,17 @@ fork_ret=2196 The 10 times
 --------
 ```
 
-###pstree -p
+### pstree -p
 ```
 bash(2131)───fork(2195)───fork(2196)
 ```
 
 
 ###./fork_2
+```
 2700 -fork-> 2701 - fork-> 2703
      \------------- fork-> 2702
+```
 ###pstree -p
 ```
 bash(2131)───fork(2700)─┬─fork(2701)───fork(2703)
