@@ -1,4 +1,4 @@
-##POSIX function
+## POSIX function
 * pthread_create
 * pthread_join    //wait for the thread return pointer (use void*)
 * pthread_detach  //set thread to releae the resources
@@ -9,19 +9,18 @@
 * pthread_cancel  // terminate another thread
 * pthread_exit    // exit a thread without exiting process
 **Don't use exit leave the thread, it may kill the process
+* pthread_setname_np //set the thread name
 
-##pthread_join
+## pthread_join
 * In main thread to use pthread_join to wait for the thread result.
 * Thread can allocate memory and return the pointer but main thread need to free the memory.
 
-
-
-##Kernel Thread and User Threads
+## Kernel Thread and User Threads
 *Kernel thread: ps -aux with [] process
 *驅動程式控制in kernel thread 避免system call的overhead
 
-##pthread attribuite 詳解
-###pthread_attr_t
+## pthread_attr 詳解
+### pthread_attr_t
 ```
 typedef struct
 {
@@ -36,17 +35,30 @@ typedef struct
    size_t                    stacksize;       //线程栈的大小
 }pthread_attr_t;
 ```
-###init & destroy
+
+### Default
+* Deafault thread attributes:
+```
+    Detach state        = PTHREAD_CREATE_JOINABLE
+    Scope               = PTHREAD_SCOPE_SYSTEM
+    Inherit scheduler   = PTHREAD_INHERIT_SCHED
+    Scheduling policy   = SCHED_OTHER
+    Scheduling priority = 0
+    Guard size          = 4096 bytes
+    Stack address       = 0x7f6672c71000
+    Stack size          = 0x800000 bytes
+```
+
+### init & destroy
 int pthread_attr_init(pthread_attr_t *attr);
 int pthread_attr_destroy(pthread_attr_t *attr);
 
-###detachstate
-detachstate：
-PTHREAD_CREATE_DETACHED //set thread to releae the resources after pthread_exit
-PTHREAD_CREATE_JOINABLE //default use pthread_join to wait the return
+### detachstate
+PTHREAD_CREATE_DETACHED:
+    set thread to releae the resources after pthread_exit
+PTHREAD_CREATE_JOINABLE:
+    default use pthread_join to wait the return
 ```
 int pthread_attr_getdetachstate(const pthread_attr_t * attr, int * detachstate);
 int pthread_attr_setdetachstate(pthread_attr_t * attr, int detachstate);
 ```
-
-
