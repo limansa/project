@@ -1,0 +1,2 @@
+* sf::String("Hello")可隱性轉型成"Hello" 因為sf::String的建構子有寫可轉型成string
+* font can be find in /usr/share/fonts/truetype/msttcorefonts
