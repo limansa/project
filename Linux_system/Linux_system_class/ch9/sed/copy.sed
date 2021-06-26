@@ -1,0 +1,1 @@
+1 i\\n /*i2cdetect.c - a user-space program to scan for I2C devices \n Copyright (C) 1999-2004  Frodo Looijaard <frodol@dds.nl>, and ark D. Studebaker <mdsxyz123@yahoo.com>\n    Copyright (C) 2004-2010  Jean Delvare <khali@linux-fr.org>*/\

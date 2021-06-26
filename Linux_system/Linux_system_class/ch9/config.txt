@@ -1,0 +1,6 @@
+
+ipaddr=192.168.1.2
+host="ittraining"
+DNS="www.yahoo.com" yahoo yahoo
+passwd="1234"
+

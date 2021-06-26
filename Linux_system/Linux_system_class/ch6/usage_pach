@@ -1,0 +1,2 @@
+ diff -urN fork_mice.c pthread_mice.c > patch
+ patch -p0 fork_mice patch

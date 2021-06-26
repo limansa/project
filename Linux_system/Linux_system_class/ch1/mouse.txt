@@ -1,0 +1,7 @@
+3. 座標
+如何得到mouse的當前座標值？可通過如下幾步：
+1）打開"/dev/input/mice"文件。
+2）讀3個位元組。三個位元組的值分別是"Button類型"，"X的相對位移"，"Y的相對位移"。這裏先用Button, xRel, yRel表示。
+3）取Button的低3位（Button & 0x07）。0x00 = LeftButtonUp, 0x01 = LeftButtonDown, 0x02 = RightButtonDown.
+4）因為這裏取得是相對位移，所以X, Y要分別與上一次的座標值相加。xPos += xRel; yPos +=yRel.
+好了，到這裏完成了一次讀取操作。具體的代碼請參見附錄一。附錄二介紹一下gpm

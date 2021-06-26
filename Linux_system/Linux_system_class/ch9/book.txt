@@ -1,0 +1,4 @@
+Linux	Joseph	20.5
+Java   	Tracy	30.0
+ARM-SoC	Morris	45.3
+8051	Jesse	18.6
